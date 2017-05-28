@@ -82,38 +82,51 @@ Now that you have a working solution, let's make sure that whenever you change y
 
 Jenkins is a popular Open Source tool for Continuous Integration and Continuous Delivery. Since we're not working with collaborators or deploying our code to a server yet, we'll be using Jenkins for Continuous Testing alone.
 
-As part of this workshop, you should have received an email with your username, password, and link to our internal Jenkins server. Use the link to log in to Jenkins. On the homepage, click the link on the left that says **New Item**
+
+ * As part of this workshop, you should have received an email with your username, password, and link to our internal Jenkins server. Use the link to log in to Jenkins. On the homepage, click the link on the left that says **New Item**
 
 <kbd>![Jenkins - New Item link](res/jenkinsNewItem.png)</kbd>
 
-In the New Item configuration screen, set the name of the project to `[MY_USERNAME]-jenkinsTest`, then click the box underneath titled **Freestyle project**, and finally click **OK** at the bottom of the page.
+
+ * In the New Item configuration screen, set the name of the project to `[MY_USERNAME]-jenkinsTest`, then click the box underneath titled **Freestyle project**, and finally click **OK** at the bottom of the page.
 
 <kbd>![Jenkins - New Item Configuration](res/jenkinsNewItemConfig.png)</kbd>
 
-On the project configuration screen, under **Source Code Management**, select the **Git** list item and enter the URL of your github repository page (Note: *not* the git clone URL). This tells Jenkins where it can get your code from (GitHub) and how to do it (using `git clone`).
+
+ * On the project configuration screen, under **Source Code Management**, select the **Git** list item and enter the URL of your github repository page (Note: *not* the git clone URL). This tells Jenkins where it can get your code from (GitHub) and how to do it (using `git clone`).
 
 <kbd>![Jenkins - Project Configuration - Git](res/jenkinsProjectGitConfig.png)</kbd>
 
-To run tests whenever you push changes to GitHub, you'll need to set up Jenkins and GitHub together. For Jenkins, you'll need to navigate to the **Build Triggers** section and click the checkbox titled "GitHub hook trigger for GITScm polling".
+
+ * To run tests whenever you push changes to GitHub, you'll need to set up Jenkins and GitHub together. For Jenkins, you'll need to navigate to the **Build Triggers** section and click the checkbox titled "GitHub hook trigger for GITScm polling".
 
 <kbd>![Jenkins - Project Configuration - Build Trigger](res/jenkinsProjectBuildTrigger.png)</kbd>
 
 
-On the GitHub side, you'll need to go into the project settings and add a new WebHook that points to your Jenkins server. The URL for the WebHook can be found in your email with your Jenkins credentials.
+ * On the GitHub side, you'll need to go into the project settings and add a new WebHook that points to your Jenkins server. The URL for the WebHook can be found in your email with your Jenkins credentials.
 
 <kbd>![GitHub - WebHoo  Configuration 1](res/githubWebhook1.png)</kbd>
 <kbd>![GitHub - WebHoo  Configuration 2](res/githubWebhook2.png)</kbd>
 
 
-Now that Jenkins knows how and when to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell**.
+ * Now that Jenkins knows how and when to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell**.
 
 <kbd>![Jenkins - Project Build Command](res/jenkinsProjectConfigBuild1.png)</kbd>
 
 
+ * In the command window that appears, type: `./runTests.py`.
 
-In the command window that appears, type: `./runTests.py`.
+ * Finally, click **Save** at the bottom.
 
-Finally, click **Save** at the bottom.
+If all went well, you'll have just set up push-based continuous testing with GitHub and Jenkins. Now let's test it out!
+
+ * Make some small change to your repository,
+ * commit it,
+ * push it back up to GitHub, and
+ * watch your Project Status page for a new build beginning on its own
+
+You should very quickly see a new build in the queue, and within a few seconds, the test results should be available.
+
 
 
 ## Part 4: TDD
