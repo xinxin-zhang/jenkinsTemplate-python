@@ -94,12 +94,26 @@ On the project configuration screen, under **Source Code Management**, select th
 
 <kbd>![Jenkins - Project Configuration - Git](res/jenkinsProjectGitConfig.png)</kbd>
 
-Now that Jenkins knows how to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell**.
+To run tests whenever you push changes to GitHub, you'll need to set up Jenkins and GitHub together. For Jenkins, you'll need to navigate to the **Build Triggers** section and click the checkbox titled "GitHub hook trigger for GITScm polling".
+
+<kbd>![Jenkins - Project Configuration - Build Trigger](res/jenkinsProjectBuildTrigger.png)</kbd>
+
+
+On the GitHub side, you'll need to go into the project settings and add a new WebHook that points to your Jenkins server. The URL for the WebHook can be found in your email with your Jenkins credentials.
+
+<kbd>![GitHub - WebHoo  Configuration 1](res/githubWebhook1.png)</kbd>
+<kbd>![GitHub - WebHoo  Configuration 2](res/githubWebhook2.png)</kbd>
+
+
+Now that Jenkins knows how and when to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell**.
 
 <kbd>![Jenkins - Project Build Command](res/jenkinsProjectConfigBuild1.png)</kbd>
 
+
+
 In the command window that appears, type: `./runTests.py`.
 
+Finally, click **Save** at the bottom.
 
 
 ## Part 4: TDD
