@@ -131,9 +131,9 @@ You should very quickly see a new build in the queue, and within a few seconds, 
 
 ## Part 4: Test-Driven Development
 
-What happens when you call `sln.ArrayPairSum(['herp', 'derp'])`? How should your program behave? Let's say it should throw an error, but are you sure it will?
+Test-Driven Development (TDD) is a software development process wherein you write test cases for new software requirements, and only afterwards you improve the software to pass the tests. Let's practice.
 
-Test-Driven Development (TDD) is a software development process wherein you write test cases for new software requirements, then you improve the software to pass the new tests. Let's practice:
+What happens when you call `sln.ArrayPairSum(['herp', 'derp'])`? How should your program behave? It most likely throws an error, but maybe that isn't how you'd like your program to behave. Let's say you want to return 0 instead. To implement this using a TDD process:
 
  * create a new test in `test/test.py` that ensures ArrayPairSum returns 0 when it is called with a string array.
 
@@ -145,6 +145,6 @@ Test-Driven Development (TDD) is a software development process wherein you writ
  * run `./runTests.py` locally to show that this test (most likely) fails.
  * commit and push your new changes to GitHub, noting that this commit "Adds failing tests for returning 0 on string array".
  * ensure Jenkins picks up the changes, and that its tests fail in the same way
- * now fix the code to cause the tests to pass. run `./runTests.py` locally to check.
+ * now fix the code such that the tests to pass. run `./runTests.py` locally to check.
  * when you're ready, commit and push your fix to GitHub, then check Jenkins to ensure your build succeeds.
 
