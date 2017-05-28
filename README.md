@@ -1,10 +1,10 @@
 # jenkinsTemplate-python
 A testable Python project for the Jenkins CI workshop
 
- * [Part 0: Problem Statement](part-0-problem-statement)
- * [Part 1: Implement and Test](part-1-implement-and-test)
- * [Part 2: Jenkins](part-2-jenkins)
- * [Part 3: TDD](part-3-tdd)
+ * [Part 0: Problem Statement](#part-0-problem-statement)
+ * [Part 1: Implement and Test](#part-1-implement-and-test)
+ * [Part 2: Jenkins](#part-2-jenkins)
+ * [Part 3: TDD](#part-3-tdd)
 
 ----
 
