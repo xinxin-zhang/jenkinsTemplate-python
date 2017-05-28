@@ -25,9 +25,13 @@ To begin, fork this repo on GitHub ...
 git clone git@github.com:[MY_USER]/jenkinsTemplate-python.git
 ```
 
+
+
+
+
 ## Part 1: Problem Statement
 
-Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a<sub>1</sub>, b<sub>1</sub>), (a<sub>2</sub>, b<sub>2</sub>), ..., (a<sub>n</sub>, b<sub>n</sub>) which makes the sum of min(a<sub>i</sub>, b<sub>i</sub>) for all i from 1 to n as large as possible.
+Given an array of `2n` integers, your task is to group these integers into `n` pairs of integers, say `(a<sub>1</sub>, b<sub>1</sub>), (a<sub>2</sub>, b<sub>2</sub>), ..., (a<sub>n</sub>, b<sub>n</sub>)` which makes the sum of `min(a<sub>i</sub>, b<sub>i</sub>)` for all `i` from `1` to `n` as large as possible.
 
 ### Example
 
