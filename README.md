@@ -3,7 +3,7 @@ A testable Python project for the Jenkins CI workshop
 
  * [Part 0: Problem Statement](#part-0-problem-statement)
  * [Part 1: Implement and Test](#part-1-implement-and-test)
- * [Part 2: Jenkins](#part-2-jenkins)
+ * [Part 2: Jenkins](#part-2-jenkins-continuous-integration)
  * [Part 3: TDD](#part-3-tdd)
 
 ----
@@ -29,9 +29,9 @@ All the integers in the array will be in the range of [-10000, 10000].
 
 ## Part 1: Implement and Test
 
-The first job is to implement a working solution that passes the given test. To do so, modify the code in `src/arrayPartition1.py`.
+Your first job is to implement a working solution that passes the given test. To do so, modify the code in `src/arrayPartition1.py`.
 
-Testing is done by calling `runTests.py` from your command line.
+Testing is performed by calling `./runTests.py` from your shell / command line.
 
 If you've implemented a correct solution, the output should look like this:
 
@@ -41,12 +41,18 @@ $ ./runTests.py
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
 
-OK```
+OK
+```
 
 
 
 
-## Part 2: Jenkins
+## Part 2: Jenkins Continuous Integration
+
+Now that you have a working solution, let's make sure that whenever you change your code and push it back to GitHub, it remains executable and that all of your tests still pass.
+
+Jenkins is a popular Open Source tool for Continuous Integration and Continuous Delivery. Since we're not working with collaborators or deploying our code anywhere, we'll be using Jenkins for Continuous Testing alone.
+
 
 
 
