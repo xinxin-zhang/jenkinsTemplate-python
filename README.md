@@ -5,7 +5,7 @@ A testable Python project for the Jenkins CI workshop @ Insight Data Engineering
  * [Part 1: Problem Statement](#part-1-problem-statement)
  * [Part 2: Implement and Test](#part-2-implement-and-test)
  * [Part 3: Jenkins](#part-3-jenkins-continuous-integration)
- * [Part 4: TDD](#part-4-tdd)
+ * [Part 4: Test-Driven Development](#part-4-test-driven-development)
 
 ----
 
@@ -129,4 +129,22 @@ You should very quickly see a new build in the queue, and within a few seconds, 
 
 
 
-## Part 4: TDD
+## Part 4: Test-Driven Development
+
+What happens when you call `sln.ArrayPairSum(['herp', 'derp'])`? How should your program behave? Let's say it should throw an error, but are you sure it will?
+
+Test-Driven Development (TDD) is a software development process wherein you write test cases for new software requirements, then you improve the software to pass the new tests. Let's practice:
+
+ * create a new test in `test/test.py` that ensures ArrayPairSum returns 0 when it is called with a string array.
+
+```python
+    def test_str(self):
+        assertEqual(self.sln.ArrayPairSum(["herp", "derp"]), 0)
+```
+
+ * run `./runTests.py` locally to show that this test (most likely) fails.
+ * commit and push your new changes to GitHub, noting that this commit "Adds failing tests for returning 0 on string array".
+ * ensure Jenkins picks up the changes, and that its tests fail in the same way
+ * now fix the code to cause the tests to pass. run `./runTests.py` locally to check.
+ * when you're ready, commit and push your fix to GitHub, then check Jenkins to ensure your build succeeds.
+
