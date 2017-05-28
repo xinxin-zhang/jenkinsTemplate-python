@@ -90,6 +90,9 @@ In the New Item configuration screen, set the name of the project to `[MY_USERNA
 
 <kbd>![Jenkins - New Item Configuration](res/jenkinsNewItemConfig.png)</kbd>
 
+On the project configuration screen, under **Source Code Management**, select the **Git** list item and enter the URL of your github repository page (Note: *not* the git clone URL)
+
+<kbd>![Jenkins - Project Configuration - Git](res/jenkinsProjectGitConfig.png)</kbd>
 
 
 
