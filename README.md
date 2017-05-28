@@ -13,11 +13,11 @@ A testable Python project for the Jenkins CI workshop @ Insight Data Engineering
 
 To begin, fork this repo on GitHub ...
 
-![How to Fork a Repository](res/howToFork.jpg)
+![How to Fork a Repository](res/howToFork.png)
 
 ... then clone it to your local machine by copying the clone link ...
 
-![Where to find the clone link](res/findTheCloneLink.jpg)
+![Where to find the clone link](res/findTheCloneLink.png)
 
 ... and using `git clone` at your shell / command line with the clone link you just copied. The command will look something like this:
 
