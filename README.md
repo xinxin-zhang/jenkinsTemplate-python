@@ -70,7 +70,7 @@ When you're finished and your test passes, be sure to push your changes back up 
  * `git status` will show you which files have changed or been added
  * `git add [FILENAME] ...` will mark specific files to be committed and sent back to github
  * `git commit` will commit your changes locally and allow you to describe what changed in your commit message
- * `git push` will send your local committed changes back to GitHub
+ * `git push` will send your locally committed changes back to GitHub
 
 
 
@@ -80,9 +80,15 @@ When you're finished and your test passes, be sure to push your changes back up 
 
 Now that you have a working solution, let's make sure that whenever you change your code and push it back to GitHub, it remains executable and that all of your tests still pass.
 
-Jenkins is a popular Open Source tool for Continuous Integration and Continuous Delivery. Since we're not working with collaborators or deploying our code anywhere, we'll be using Jenkins for Continuous Testing alone.
+Jenkins is a popular Open Source tool for Continuous Integration and Continuous Delivery. Since we're not working with collaborators or deploying our code to a server yet, we'll be using Jenkins for Continuous Testing alone.
 
+As part of this workshop, you should have received an email with your username, password, and link to our internal Jenkins server. Use the link to log in to Jenkins. On the homepage, click the link on the left that says **New Item**
 
+<kbd>![Jenkins - New Item link](res/jenkinsNewItem.png)</kbd>
+
+In the New Item configuration screen, set the name of the project to `[MY_USERNAME]-jenkinsTest`, then click the box underneath titled **Freestyle project**, and finally click **OK** at the bottom of the page.
+
+<kbd>![Jenkins - New Item Configuration](res/jenkinsNewItemConfig.png)</kbd>
 
 
 
