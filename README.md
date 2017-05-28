@@ -90,10 +90,15 @@ In the New Item configuration screen, set the name of the project to `[MY_USERNA
 
 <kbd>![Jenkins - New Item Configuration](res/jenkinsNewItemConfig.png)</kbd>
 
-On the project configuration screen, under **Source Code Management**, select the **Git** list item and enter the URL of your github repository page (Note: *not* the git clone URL)
+On the project configuration screen, under **Source Code Management**, select the **Git** list item and enter the URL of your github repository page (Note: *not* the git clone URL). This tells Jenkins where it can get your code from (GitHub) and how to do it (using `git clone`).
 
 <kbd>![Jenkins - Project Configuration - Git](res/jenkinsProjectGitConfig.png)</kbd>
 
+Now that Jenkins knows how to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell**.
+
+<kbd>![Jenkins - Project Build Command](res/jenkinsProjectConfigBuild1.png)</kbd>
+
+In the command window that appears, type: `./runTests.py`.
 
 
 
