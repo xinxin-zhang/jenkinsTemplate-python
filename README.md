@@ -19,7 +19,7 @@ To begin, fork this repo on GitHub ...
 
 <kbd>![Where to find the clone link](res/findTheCloneLink.png)</kbd>
 
-... and using `git clone` at your shell / command line with the clone link you just copied. The command will look something like this:
+Finally, use `git clone` at your shell / command line with the clone link you just copied. The command will look something like this:
 
 ```bash
 git clone git@github.com:[MY_USER]/jenkinsTemplate-python.git
