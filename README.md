@@ -116,7 +116,13 @@ Jenkins is a popular Open Source tool for Continuous Integration and Continuous 
 
  * In the command window that appears, type: `./runTests.py`.
 
- * We need to do a bit more work to teach Jenkins how to interpret our test results. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter `**/test-results/*.xml` in the *Test report XMLs* field, because that is where your python script prints out its test results.
+ * We need to do a bit more work to teach Jenkins how to interpret our test results. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter
+
+```
+**/test-results/*.xml
+```
+
+in the *Test report XMLs* field, because that is where your python script prints out its test results.
 
 <kbd>![Jenkis - Post-Build JUnit Configuration](res/jenkinsPostbuildJUnit.png)</kbd>
 
