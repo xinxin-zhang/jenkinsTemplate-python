@@ -11,15 +11,9 @@ A testable Python project for the Jenkins CI workshop @ Insight Data Engineering
 
 ## Part 0: Getting Started
 
-To begin, fork this repo on GitHub ...
-
-<kbd>![How to Fork a Repository](res/howToFork.png)</kbd>
-
-... then clone it to your local machine by copying the clone link ...
-
-<kbd>![Where to find the clone link](res/findTheCloneLink.png)</kbd>
-
-Finally, use `git clone` at your shell / command line with the clone link you just copied. The command will look something like this:
+To begin, fork this repo on GitHub *\([image](res/howToFork.png)\)*
+then clone it to your local machine by copying the clone link *\([image](res/findTheCloneLink.png)\)*.
+Finally, use `git clone` at your shell / command line with the clone link you just copied. The command will look like this:
 
 ```bash
 git clone git@github.com:[MY_USER]/jenkinsTemplate-python.git
@@ -38,7 +32,6 @@ Given an array of *2n* integers, your task is to group these integers into *n* p
  * **Input:** [1,4,3,2]
  * **Output:** 4
  * **Explanation:** n is 2, and the maximum sum of pairs is 4.
-
 
 ### Notes
 
@@ -65,6 +58,9 @@ Ran 1 test in 0.000s
 OK
 ```
 
+
+
+
 When you're finished and your test passes, be sure to push your changes back up to GitHub. Here is a rough outline of how to do it:
 
  * `git status` will show you which files have changed or been added
@@ -83,52 +79,32 @@ Now that you have a working solution, let's make sure that whenever you change y
 Jenkins is a popular Open Source tool for Continuous Integration and Continuous Delivery. Since we're not working with collaborators or deploying our code to a server yet, we'll be using Jenkins for Continuous Testing alone.
 
 
- * As part of this workshop, you should have received an email with your username, password, and link to our internal Jenkins server. Use the link to log in to Jenkins. On the homepage, click the link on the left that says **New Item**
+As part of this workshop, you should have received an email with your username, password, and link to our internal Jenkins server. Use the link to log in to Jenkins. On the homepage, click the link on the left that says **New Item**
+*\([image](res/jenkinsNewItem.png)\\)*.
 
-<kbd>![Jenkins - New Item link](res/jenkinsNewItem.png)</kbd>
+In the New Item configuration screen, set the name of the project to `[MY_USERNAME]-jenkinsTest`, then click the box underneath titled **Freestyle project**, and finally click **OK** at the bottom of the page *\([image](res/jenkinsNewItemConfig.png)\\)*.
 
+On the project configuration screen, under **Source Code Management**, select the **Git** list item and enter the URL of your github repository page (Note: *not* the git clone URL). This tells Jenkins where it can get your code from (GitHub) and how to do it (using `git clone`) *\([image](res/jenkinsProjectGitConfig.png)\\)*.
 
- * In the New Item configuration screen, set the name of the project to `[MY_USERNAME]-jenkinsTest`, then click the box underneath titled **Freestyle project**, and finally click **OK** at the bottom of the page.
+To run tests whenever you push changes to GitHub, you'll need to set up Jenkins and GitHub together. For Jenkins, you'll need to navigate to the **Build Triggers** section and click the checkbox titled "GitHub hook trigger for GITScm polling" *\([image](res/jenkinsProjectBuildTrigger.png)\\)*.
 
-<kbd>![Jenkins - New Item Configuration](res/jenkinsNewItemConfig.png)</kbd>
+On the GitHub side, you'll need to go into the project settings and add a new WebHook that points to your Jenkins server. The URL for the WebHook can be found in your email with your Jenkins credentials
+*\([image 1](res/githubWebhook1.png), 
+[image 2](res/githubWebhook2.png)\\)*.
 
+Now that Jenkins knows how and when to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell** *\([image](res/jenkinsProjectConfigBuild1.png)\\)*.
 
- * On the project configuration screen, under **Source Code Management**, select the **Git** list item and enter the URL of your github repository page (Note: *not* the git clone URL). This tells Jenkins where it can get your code from (GitHub) and how to do it (using `git clone`).
+In the command window that appears, type: `./runTests.py`.
 
-<kbd>![Jenkins - Project Configuration - Git](res/jenkinsProjectGitConfig.png)</kbd>
-
-
- * To run tests whenever you push changes to GitHub, you'll need to set up Jenkins and GitHub together. For Jenkins, you'll need to navigate to the **Build Triggers** section and click the checkbox titled "GitHub hook trigger for GITScm polling".
-
-<kbd>![Jenkins - Project Configuration - Build Trigger](res/jenkinsProjectBuildTrigger.png)</kbd>
-
-
- * On the GitHub side, you'll need to go into the project settings and add a new WebHook that points to your Jenkins server. The URL for the WebHook can be found in your email with your Jenkins credentials.
-
-<kbd>![GitHub - WebHoo  Configuration 1](res/githubWebhook1.png)</kbd>
-<kbd>![GitHub - WebHoo  Configuration 2](res/githubWebhook2.png)</kbd>
-
-
- * Now that Jenkins knows how and when to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell**.
-
-<kbd>![Jenkins - Project Build Command](res/jenkinsProjectConfigBuild1.png)</kbd>
-
-
- * In the command window that appears, type: `./runTests.py`.
-
- * We need to do a bit more work to teach Jenkins how to interpret our test results. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter
+We need to do a bit more work to teach Jenkins how to interpret our test results. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter
 
 ```
 **/test-results/*.xml
 ```
 
-in the *Test report XMLs* field, because that is where your python script prints out its test results.
+in the *Test report XMLs* field, because that is where your python script prints out its test results *\([image](res/jenkinsPostbuildJUnit.png)\\)*.
 
-<kbd>![Jenkis - Post-Build JUnit Configuration](res/jenkinsPostbuildJUnit.png)</kbd>
-
-
-
- * Finally, click **Save** at the bottom.
+Finally, click **Save** at the bottom.
 
 If all went well, you'll have just set up push-based continuous testing with GitHub and Jenkins. Now let's test it out!
 
