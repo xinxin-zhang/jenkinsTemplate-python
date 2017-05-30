@@ -92,11 +92,11 @@ To run tests whenever you push changes to GitHub, you'll need to teach Jenkins a
 
 Now that Jenkins knows how and when to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell** *\([image](res/jenkinsProjectConfigBuild1.png)\)*. In the command window that appears, type: `./runTests.py`.
 
-One last thing we can do is teach Jenkins how to interpret our test results, giving us a better dashboard to examine our test results, and test history and statistics. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter `**/test-results/*.xml` in the *Test report XMLs* field, because that is where your python script prints out its test results *\([image](res/jenkinsPostbuildJUnit.png)\)*.
+One last thing we can do is teach Jenkins how to interpret our test results, giving us a better dashboard to examine our test results, and test history with some statistics. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter `**/test-results/*.xml` in the *Test report XMLs* field, because that is where your python script prints out its test results *\([image](res/jenkinsPostbuildJUnit.png)\)*.
 
 Finally, click **Save** at the bottom.
 
-If all went well, you'll have just set up push-based continuous testing with GitHub and Jenkins. Now let's test it out!
+If all went well, you'll have just set up push-based continuous testing with GitHub and Jenkins. Now let's try it out!
 
  * Make some small change to your repository,
  * commit it,
@@ -110,11 +110,12 @@ You should very quickly see a new build in the queue, and within a few seconds, 
 
 ## Part 4: Test-Driven Development
 
-Test-Driven Development (TDD) is a software development process wherein you write test cases for new software requirements, and only afterwards you improve the software to pass the tests. Let's practice.
+Test-Driven Development (TDD) is a software development process wherein you write test cases for new software requirements, and only afterwards do you improve the software to pass the tests. Let's practice that.
 
-What happens when you call `sln.ArrayPairSum(['herp', 'derp'])`? How should your program behave? It most likely throws an error, but maybe that isn't how you'd like your program to behave. Let's say you want to return 0 instead. To implement this using a TDD process:
+What happens when you call `sln.ArrayPairSum(['herp', 'derp'])`? How *should* your program behave? It most likely throws an error, but maybe that isn't how you'd like your program to behave.
+Let's say you have the requirement that your function return 0 for non-integral arrays. To implement this using a TDD process:
 
- * create a new test in `test/test.py` that ensures ArrayPairSum returns 0 when it is called with a string array.
+ * create a new test in `test/test.py` that ensures `ArrayPairSum` returns 0 when it is called with a string array.
 
 ```python
     def test_str(self):
@@ -123,7 +124,7 @@ What happens when you call `sln.ArrayPairSum(['herp', 'derp'])`? How should your
 
  * run `./runTests.py` locally to show that this test (most likely) fails.
  * commit and push your new changes to GitHub, noting that this commit "Adds failing tests for returning 0 on string array".
- * ensure Jenkins picks up the changes, and that its tests fail in the same way
- * now fix the code such that the tests to pass. run `./runTests.py` locally to check.
- * when you're ready, commit and push your fix to GitHub, then check Jenkins to ensure your build succeeds.
+ * ensure Jenkins picks up the changes, and that this tests fails when Jenkins tests it
+ * now fix the code to pass this test. run `./runTests.py` locally to check
+ * when you're ready, commit and push your fix to GitHub, then check Jenkins to ensure your build succeeds and that all tests pass
 
