@@ -14,10 +14,17 @@ A testable Python project for the Jenkins CI workshop @ Insight Data Engineering
 If you have not set up SSH keys for your github account yet, please follow these links to [Create an SSH Key](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key)
 and to [Associate it with your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/).
 
-You will also need python with `xmlrunner` installed. After installing python and pip for your local machine, you can install `xmlrunner` with:
+You will also need python2 with `xmlrunner` installed. After installing python and pip for your local machine, you can install `xmlrunner` with:
 
 ```bash
 pip install xmlrunner
+```
+
+Or if you have both python3 and python2 installed, you want to install `xmlrunner` for python2:
+
+
+```bash
+pip2 install xmlrunner
 ```
 
 To begin, fork this repo on GitHub *\([image](res/howToFork.png)\)*
