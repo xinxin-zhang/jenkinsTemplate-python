@@ -108,7 +108,7 @@ To run tests whenever you push changes to GitHub, you'll need to teach Jenkins a
 
 Now that Jenkins knows how and when to get a copy of your code, it needs to know how to test it. Further down the page, you'll find the **Build** section. Click on **Add build step**, then **Execute shell** *\([image](res/jenkinsProjectConfigBuild1.png)\)*. In the command window that appears, type: `./runTests.py`.
 
-One last thing we can do is teach Jenkins how to interpret our test results, giving us a better dashboard to examine our test results, and test history with some statistics. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter `**/test-results/*.xml` in the *Test report XMLs* field, because that is where your python script prints out its test results *\([image](res/jenkinsPostbuildJUnit.png)\)*.
+One last thing we can do is teach Jenkins how to interpret our test results, giving us a better dashboard to examine our test results, and test history with some statistics. Under **Post-Build Actions**, click on **Add post-build action**, and select **Publish JUnit test result report**. You'll want to enter `**/test-reports/*.xml` in the *Test report XMLs* field, because that is where your python script prints out its test results *\([image](res/jenkinsPostbuildJUnit.png)\)*.
 
 Finally, click **Save** at the bottom.
 
