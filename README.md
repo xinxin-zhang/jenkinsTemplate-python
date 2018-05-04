@@ -144,3 +144,4 @@ Let's say you have the requirement that your function return 0 for non-integral 
  * now fix the code to pass this test. run `./runTests.py` locally to check
  * when you're ready, commit and push your fix to GitHub, then check Jenkins to ensure your build succeeds and that all tests pass
 
+Good Luck
