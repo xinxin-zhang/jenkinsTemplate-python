@@ -8,7 +8,7 @@ class TestArrayPartition1(unittest.TestCase):
 
     def test_basic(self):
         self.assertEqual(self.sln.ArrayPairSum([1,5,2,3]), 4)
-    #add more comments	
+    #add two more comments	
 
 if __name__ == '__main__':
     import xmlrunner
