@@ -11,5 +11,5 @@ class TestArrayPartition1(unittest.TestCase):
     #add two more comments	
 
 if __name__ == '__main__':
-    import xmlrunner
-    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
+#    import xmlrunner
+ #   unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
