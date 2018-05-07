@@ -7,7 +7,7 @@ class TestArrayPartition1(unittest.TestCase):
         self.sln = Solution()
 
     def test_basic(self):
-        self.assertEqual(self.sln.ArrayPairSum([1,5,2,3]), 4)
+        self.assertEqual(self.sln.ArrayPairSum([1,5,2,3]), 6)
 	
 
 if __name__ == '__main__':
